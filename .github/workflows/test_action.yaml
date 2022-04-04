@@ -22,3 +22,9 @@ jobs:
           enable_comments: true
       - run: ls -la && ls -la myoutput
         if: always()
+        
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with:
+           name: results.sarif
+           path: myoutput/results.sarif
