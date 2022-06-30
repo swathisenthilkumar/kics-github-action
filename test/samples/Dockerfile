@@ -1,8 +1,9 @@
-# Container image that runs your code
-FROM alpine:3.10
+FROM debian
+RUN export node_version="0.10" \
+&& apt-get update && apt-get -y install nodejs="$node_verion"
+COPY package.json usr/src/app
+RUN cd /usr/src/app \
+&& npm install node-static
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
-
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+EXPOSE 80000
+CMD ["npm", "start"]
