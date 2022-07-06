@@ -23,16 +23,6 @@ jobs:
       - run: ls -la && ls -la myoutput
         if: always()
         
-  linter:
-    runs-on: ubuntu-latest
-    steps:
-
-      - uses: actions/checkout@v2
-
-      - name: Lint Dockerfile
-        uses: hadolint/hadolint-action@master
-        with:
-          dockerfile: "Dockerfile"
         
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
