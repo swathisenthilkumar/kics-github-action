@@ -14,3 +14,4 @@ jobs:
         with:
           dockerfile: "test/samples/Dockerfile"
           no-fail: true
+          no-color: true
